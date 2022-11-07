@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +11,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
   data: any;
-  local: any;
+  data$ = [];
   title = 'boston';
+  today = new Date();
   ngOnInit() {
     let headers = new HttpHeaders({});
     this.http
@@ -22,7 +25,6 @@ export class AppComponent implements OnInit {
       )
       .subscribe((data) => {
         this.data = data;
-
         console.log(data);
       });
   }

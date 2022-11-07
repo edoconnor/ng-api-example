@@ -1,3 +1,6 @@
 <h1>BOSTON</h1>
-<p> Current temp = {{ data.main.temp | json }}</p>
+<h1> {{ data.main.temp | json }}°</h1>
 <p> Humidity = {{ data.main.humidity | json }}%</p>
+<p> Wind speed = {{ data.wind.speed | json }} mph</p>
+<p> Wind direction  = {{ data.wind.deg | json }}°</p>
+<p> {{ today | date:'shortTime' }}</p>
